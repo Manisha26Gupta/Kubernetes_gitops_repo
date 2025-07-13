@@ -8,8 +8,7 @@ env:
   ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
   ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-  RESOURCE_GROUP: rg-aks-flux
-  CLUSTER_NAME: aks-flux-cluster
+  RESOURCE_GROUP: Kubernetes_GitOps
 
 jobs:
   provision-and-secure-cluster:
@@ -40,6 +39,4 @@ jobs:
       working-directory: terraform
       run: terraform apply -auto-approve
 
-    - name: Create AKS Cluster
-      run: |
         
