@@ -21,10 +21,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v3
-      with:
-        terraform_version: 1.5.6
+    #- name: Setup Terraform
+    #  uses: hashicorp/setup-terraform@v3
+    #  with:
+    #    terraform_version: 1.5.6
 
     - name: Azure Login
       uses: azure/login@v1
@@ -35,12 +35,12 @@ jobs:
         client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
         auth-type: "SERVICE_PRINCIPAL"
 
-    - name: Terraform Init
-      working-directory: terraform
-      run: terraform init
+   # - name: Terraform Init
+    #  working-directory: terraform
+   #  run: terraform init
 
-    - name: Terraform Apply (AKS Provision)
-      working-directory: terraform
-      run: terraform apply -auto-approve
+   # - name: Terraform Apply (AKS Provision)
+    #  working-directory: terraform
+   #   run: terraform apply -auto-approve
 
         
