@@ -32,7 +32,10 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-
+    - name: Clean Terraform Cache
+      run: |
+          rm -rf .terraform
+          rm -f .terraform.lock.hcl
     - name: Terraform Init
       working-directory: terraform
       run: terraform init
