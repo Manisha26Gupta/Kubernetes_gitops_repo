@@ -24,29 +24,22 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    #- name: Setup Terraform
-    #  uses: hashicorp/setup-terraform@v3
-    #  with:
-    #    terraform_version: 1.5.6
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_version: 1.5.6
 
     - uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
 
-    - name: Azure CLI script
-      uses: azure/cli@v2
-      with:
-        azcliversion: latest
-        inlineScript: |
-          az account show
+    - name: Terraform Init
+      working-directory: terraform
+      run: terraform init
 
-   # - name: Terraform Init
-    #  working-directory: terraform
-   #  run: terraform init
-
-   # - name: Terraform Apply (AKS Provision)
-    #  working-directory: terraform
-   #   run: terraform apply -auto-approve
+    - name: Terraform Apply (AKS Provision)
+      working-directory: terraform
+      run: terraform apply -auto-approve
 
         
