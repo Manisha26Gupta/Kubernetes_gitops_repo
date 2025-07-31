@@ -1,7 +1,7 @@
 
 ######
 
-name: AKS Cluster Provisioning with Terraform and Security
+name: AKS Cluster destroy
 
 on:
   workflow_dispatch:
