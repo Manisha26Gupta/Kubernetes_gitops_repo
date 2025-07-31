@@ -15,7 +15,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "rg" {
   name     = "rg-aks-flux"
-  location = "West Europe"
+  location = "East US"
 }
 
 resource "azurerm_kubernetes_cluster" "aks" {
