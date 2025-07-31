@@ -12,6 +12,9 @@ env:
   ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
   RESOURCE_GROUP: Kubernetes_GitOps
 
+permissions:
+  contents: read
+
 jobs:
   provision-and-secure-cluster:
     name: Provision AKS and Apply Security
